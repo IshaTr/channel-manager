@@ -22,11 +22,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": {
+    "lint-staged": {
       "src/**/*.{js,jsx,json,css,scss,md}": [
         "prettier --write"
       ]
-   }
+    },
+    "lint": "npx prettier --write */**/*.{js,jsx,json,css,md}"
   },
   "eslintConfig": {
     "extends": [
@@ -53,7 +54,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint"
+      "pre-commit": "lint-staged"
     }
   }
 }

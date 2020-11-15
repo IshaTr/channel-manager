@@ -1,6 +1,6 @@
 import {currentChannels} from './reducer'
 
-export default {
+const mockStore = {
   currentChannels: currentChannels || {},
   favoriteChannels: [],
   activeIndexChannel: 1,
@@ -9,3 +9,5 @@ export default {
   activeIcon: 'star',
   disableKeys: false
 }
+
+export default mockStore
