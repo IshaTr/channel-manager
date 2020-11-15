@@ -4,7 +4,7 @@ The app is build using `react, javascript, redux, styled-components, eslint, pre
 
 ## Setup
 ```
-* git clone
+* git clone git@github.com:IshaTr/channel-manager.git
 * cd zattoo
 * yarn
 * yarn start
