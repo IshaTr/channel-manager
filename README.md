@@ -1,5 +1,9 @@
 
 # Favourite Channel settings
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5144422c-d526-4deb-9c52-2599a95daceb/deploy-status)](https://app.netlify.com/sites/flamboyant-elion-e6c90f/deploys)
+
+[https://5fb1af1cd0f15200074d13af--flamboyant-elion-e6c90f.netlify.app/](https://5fb1af1cd0f15200074d13af--flamboyant-elion-e6c90f.netlify.app/)
 The app is build using `react, javascript, redux, styled-components, eslint, prettier, jest, React Testing Library, create-react-app`
 
 ## Setup
