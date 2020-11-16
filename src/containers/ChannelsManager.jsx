@@ -11,8 +11,11 @@ const Wrapper = styled.div`
 `
 
 const ChannelsManager = (props) => {
+  const channelEl = document.getElementById('channel-container')
+
   const logKey = useCallback(
     (e) => {
+      // Move down
       if (props && e.keyCode === 40) {
         if (!props.disableKeys) {
           props.decreaseActiveChannelRank()
@@ -22,7 +25,13 @@ const ChannelsManager = (props) => {
             props.activeIndexFavorite
           )
         }
-      } else if (props && e.keyCode === 38) {
+
+        if (props.activeRow >= 4) {
+          channelEl.scrollTop = 32 * props.activeIndexChannel
+        }
+      }
+      // Move up
+      else if (props && e.keyCode === 38) {
         if (!props.disableKeys) {
           props.increaseActiveChannelRank()
         } else {
@@ -31,9 +40,19 @@ const ChannelsManager = (props) => {
             props.activeIndexFavorite - 2
           )
         }
-      } else if (props && e.keyCode === 37 && !props.disableKeys) {
+
+        if (channelEl.scrollTop > 56) {
+          channelEl.scrollTop = channelEl.scrollTop - 56
+        } else {
+          channelEl.scrollTop = 0
+        }
+      }
+      // Move left
+      else if (props && e.keyCode === 37 && !props.disableKeys) {
         props.shiftActiveChannelLeft()
-      } else if (props && e.keyCode === 39 && !props.disableKeys) {
+      }
+      // Move right
+      else if (props && e.keyCode === 39 && !props.disableKeys) {
         props.shiftActiveChannelRight()
       } else if (props && e.keyCode === 13) {
         if (props.activeIndexFavorite && props.activeIcon === 'star') {
@@ -48,7 +67,7 @@ const ChannelsManager = (props) => {
         }
       }
     },
-    [props]
+    [props, channelEl]
   )
 
   useEffect(() => {
@@ -95,7 +114,8 @@ const mapStateToProps = (state) => ({
   activeIndexChannel: state.activeIndexChannel,
   activeIndexFavorite: state.activeIndexFavorite,
   activeIcon: state.activeIcon,
-  disableKeys: state.disableKeys
+  disableKeys: state.disableKeys,
+  activeRow: state.activeRow
 })
 
 const mapDispatchToProps = (dispatch) => ({

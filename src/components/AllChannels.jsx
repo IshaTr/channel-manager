@@ -49,7 +49,7 @@ const AllChannels = ({
   handleKeyUp
 }) => (
   <Flex direction='column' width='66%' position='relative'>
-    <Container direction='column' position='fixed'>
+    <Container direction='column' position='fixed' id='channel-container'>
       <Header>All channels</Header>
       <Wrapper>
         {Object.entries(channels).map(([channelId, channel], index) => (

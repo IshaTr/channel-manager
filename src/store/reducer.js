@@ -68,10 +68,9 @@ const reducer = (state = defaultState, action) => {
 
     case types.INCREASE:
       if (state.activeIndexChannel) {
-        if (state.activeIndexChannel === 1) {
+        if (state.activeIndexChannel === 1 || state.activeIndexChannel === 2) {
           return {
             ...state,
-            activeIndexChannel: 1,
             activeRow: 1
           }
         } else {
@@ -120,7 +119,7 @@ const reducer = (state = defaultState, action) => {
           }
         }
       } else if (state.activeIndexFavorite) {
-        if (state.activeIndexChannel === state.currentChannels.length) {
+        if (state.activeIndexFavorite === state.favoriteChannels.length) {
           return state
         } else {
           const newIndex = state.activeIndexFavorite + 1
